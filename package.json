@@ -7,7 +7,9 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "bookshelf": "^1.0.1",
     "cookie-parser": "~1.4.4",
+    "dayjs": "^1.8.19",
     "debug": "~2.6.9",
     "express": "^4.16.4",
     "express-graphql": "^0.9.0",
@@ -17,12 +19,15 @@
     "http-errors": "~1.6.3",
     "join-monster": "^2.1.1",
     "jsonwebtoken": "^8.5.1",
+    "knex": "^0.20.8",
     "morgan": "~1.9.1",
     "mysql": "^2.17.1",
+    "mysql2": "^2.1.0",
     "node-fetch": "^2.6.0",
     "node-sass-middleware": "0.11.0",
     "orm": "^5.0.5",
-    "pug": "2.0.0-beta11"
+    "pug": "2.0.0-beta11",
+    "sequelize": "^5.21.3"
   },
   "devDependencies": {
     "supervisor": "^0.12.0"

@@ -5,13 +5,14 @@ const { connectionArgs, connectionFromArray, forwardConnectionArgs } = require('
 
 const { Message, MessageConnection } = require('./types/Message');
 const { User, UserConnection } = require('./types/User');
+const { DATABASE } = require('../config');
 
 
 const client = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'root',
-    password : 'Hexl900608',
-    database : 'sign'
+    host     : DATABASE.host,
+    user     : DATABASE.user,
+    password : DATABASE.password,
+    database : DATABASE.database
 });
 
 client.connect();

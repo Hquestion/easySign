@@ -4,11 +4,15 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var sassMiddleware = require('node-sass-middleware');
+const expressJWT = require('express-jwt');
+const { APP_ID } = require('./config');
 
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var graphRouter = require('./routes/graphql');
+var messageRouter = require('./routes/message');
+var signRouter = require('./routes/sign');
 
 var app = express();
 
@@ -28,9 +32,19 @@ app.use(sassMiddleware({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+var secretOrPrivateKey = APP_ID;  //加密token 校验token时要使用
+
+app.use(expressJWT({
+  secret: secretOrPrivateKey
+}).unless({
+  path: ['/users/login', '/users/createJWTToken', '/graphql']  //除了这个地址，其他的URL都需要验证
+}));
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/graphql', graphRouter);
+app.use('/message', messageRouter);
+app.use('/sign', signRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
