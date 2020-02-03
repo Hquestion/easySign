@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "supervisor ./bin/www"
+    "start": "supervisor ./bin/www",
+    "pm:run": "PORT=5000 pm2 start ./bin/www --name easysign"
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -30,6 +31,7 @@
     "sequelize": "^5.21.3"
   },
   "devDependencies": {
+    "pm2": "^4.2.3",
     "supervisor": "^0.12.0"
   }
 }
