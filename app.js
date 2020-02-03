@@ -40,11 +40,11 @@ app.use(expressJWT({
   path: ['/users/login', '/users/createJWTToken', '/graphql']  //除了这个地址，其他的URL都需要验证
 }));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/graphql', graphRouter);
-app.use('/message', messageRouter);
-app.use('/sign', signRouter);
+app.use('/es', indexRouter);
+app.use('/es/users', usersRouter);
+app.use('/es/graphql', graphRouter);
+app.use('/es/message', messageRouter);
+app.use('/es/sign', signRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
