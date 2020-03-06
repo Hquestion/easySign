@@ -34,4 +34,12 @@ router.post('/createJWTToken', async function(req, res, next) {
     }));
 });
 
+router.get('/test', async function(req, res, next) {
+    if (req.query.token) {
+        res.send('success');
+    }
+    res.status('401');
+    res.send('error');
+});
+
 module.exports = router;

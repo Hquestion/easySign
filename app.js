@@ -37,7 +37,7 @@ var secretOrPrivateKey = APP_ID;  //加密token 校验token时要使用
 app.use(expressJWT({
   secret: secretOrPrivateKey
 }).unless({
-  path: ['/es/users/login', '/es/users/createJWTToken', '/es/graphql']  //除了这个地址，其他的URL都需要验证
+  path: ['/es/users/login', '/es/users/createJWTToken', '/es/users/test', '/es/graphql']  //除了这个地址，其他的URL都需要验证
 }));
 
 app.use('/es', indexRouter);
